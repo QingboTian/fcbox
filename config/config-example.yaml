@@ -1,0 +1,29 @@
+redis:
+  address: 127.0.0.1
+  port: 6379
+  user:
+  password:
+
+notify:
+  # 间隔多久通知快递员 单位小时 默认24小时 建议不要太小
+  frequency: 24
+  # bark通知（ios）
+  bark:
+    address: 127.0.0.1
+    port: 1212
+  # 腾讯短信服务
+  tencent:
+    secretId: 'xx'
+    secretKey: 'xx'
+    sdkAppId: 'xx'
+    # 已经审核通过的签名名称
+    signName: 'xx'
+    templateId: 'xx'
+
+# 丰巢配置信息
+fcbox:
+  # 登录凭证 目前是通过抓包获取的 目前发现登录涉及部分加密配置 需要重新
+  authorization: 'xxx.eyJ0b2tlbiI6IndlY2hhdGFwcC41MjY1NzQ1OTA1OTI1NTI5NjAuYTgzMjY5NTIxOTE2OTM2NjAxNy5yODMyNjk1MjE5MTY5MzY2MDE2IiwiZXhwIjoxNjk5NTg2NzEzfQ.r3fhEnkIvJKripMCL0nB_v9-s95KS8iA8YVlDuz0O4E'
+  api: 'https://webchatapp.fcbox.com/post/express/pageQuery4Mini'
+  contentType: 'application/x-www-form-urlencoded'
+  size: '100'
