@@ -37,13 +37,19 @@ func GetFcBoxInfo() []*StaffMessage {
 	request.Header.Set("Authorization", yaml.FcBox.Authorization)
 	request.Header.Set("content-type", yaml.FcBox.ContentType)
 	if err != nil {
+		ErrorBark("build fcbox request error")
 		panic(err)
 	}
 	response, _ := http.DefaultClient.Do(request)
+	if response == nil {
+		ErrorBark("call fcbox api error")
+		panic("fcbox api response error")
+	}
 	body, _ := ioutil.ReadAll(response.Body)
 	fcBoxResponse := new(FcBoxResponse)
 	err = json.Unmarshal(body, fcBoxResponse)
 	if err != nil {
+		ErrorBark("fcbox response Unmarshal error")
 		panic(err)
 	}
 	var result []*StaffMessage

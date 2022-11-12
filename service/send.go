@@ -88,7 +88,7 @@ func (tencentMessageSend *TencentMessageSend) send() bool {
 	/* 下发手机号码，采用 E.164 标准，+[国家或地区码][手机号]
 	 * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
 	//request.PhoneNumberSet = common.StringPtrs([]string{tencentMessageSend.StaffMobile})
-	request.PhoneNumberSet = common.StringPtrs([]string{"18220573635"})
+	request.PhoneNumberSet = common.StringPtrs([]string{tencentMessageSend.StaffMobile})
 
 	/* 用户的 session 内容（无需要可忽略）: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
 	//request.SessionContext = common.StringPtr("")
@@ -124,6 +124,11 @@ func Bark(title string, content string) {
 	res, err := http.Get(url)
 	if err != nil {
 		//panic(err)
+		return
 	}
 	fmt.Println(res)
+}
+
+func ErrorBark(message string) {
+	Bark("程序发生异常", message)
 }

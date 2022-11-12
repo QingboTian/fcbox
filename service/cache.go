@@ -3,6 +3,7 @@ package service
 import (
 	"fcbox/config"
 	"github.com/go-redis/redis/v8"
+	"log"
 	"time"
 )
 
@@ -29,10 +30,12 @@ func IsSend(code string) bool {
 	exists := redisClient.Exists(redisClient.Context(), key)
 	if exists.Err() != nil {
 		// 存在错误 直接宕机
+		ErrorBark("redis exist error")
 		panic(exists.Err())
 	}
 	result, err := exists.Result()
 	if err != nil {
+		ErrorBark("redis exist result error")
 		panic(err)
 	}
 	// 不存在 即需要发送
@@ -40,7 +43,9 @@ func IsSend(code string) bool {
 }
 
 func buildKey(code string) string {
-	return CachePrefix + code
+	key := CachePrefix + code
+	log.Printf("build cache key:%s\n", key)
+	return key
 }
 
 func Set(code string) {

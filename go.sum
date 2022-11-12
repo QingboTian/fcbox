@@ -27,6 +27,8 @@ github.com/onsi/gomega v1.10.1/go.mod h1:iN09h71vgCQne3DLsj+A5owkum+a2tYe+TOCB1y
 github.com/onsi/gomega v1.10.5/go.mod h1:gza4q3jKQJijlu05nKWRCW/GavJumGt8aNRxWg7mt48=
 github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.534 h1:ZsJCXIZO2KfmEsrVN6a75VncTuaSkD4PNd1iXZ1I8BU=
 github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.534/go.mod h1:7sCQWVkxcsR38nffDW057DRGk8mUjK1Ing/EFOK8s8Y=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.535 h1:B5RVDxQ+Jxq8wrA3SoVr7j3vZ4CJfC4kfD+BDDxnUeY=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.535/go.mod h1:7sCQWVkxcsR38nffDW057DRGk8mUjK1Ing/EFOK8s8Y=
 github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms v1.0.534 h1:v6ZBISBFj68XIkZ/dvsxs8nUqIt17fMmuFi1f5Al8WY=
 github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms v1.0.534/go.mod h1:+4JvAdhnuXABI4Jw24s0GWGNE44agyQ+VK34d4FEz7g=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
