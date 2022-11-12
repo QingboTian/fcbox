@@ -41,7 +41,7 @@ func GetFcBoxInfo() []*StaffMessage {
 		panic(err)
 	}
 	response, _ := http.DefaultClient.Do(request)
-	if response == nil {
+	if response == nil || response.StatusCode != 200 {
 		ErrorBark("call fcbox api error")
 		panic("fcbox api response error")
 	}

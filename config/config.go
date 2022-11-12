@@ -45,7 +45,7 @@ type Tencent struct {
 
 // ReadYaml 读取yaml配置
 func ReadYaml() *Config {
-	content, err := ioutil.ReadFile("config/config.yaml")
+	content, err := ioutil.ReadFile("./config/config.yaml")
 	if err != nil {
 		panic(err)
 	}
