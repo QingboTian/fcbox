@@ -37,19 +37,23 @@ func GetFcBoxInfo() []*StaffMessage {
 	request.Header.Set("Authorization", yaml.FcBox.Authorization)
 	request.Header.Set("content-type", yaml.FcBox.ContentType)
 	if err != nil {
-		ErrorBark("build fcbox request error")
+		ErrorBark("构建丰巢请求参数发生异常")
 		panic(err)
 	}
 	response, _ := http.DefaultClient.Do(request)
-	if response == nil || response.StatusCode != 200 {
-		ErrorBark("call fcbox api error")
-		panic("fcbox api response error")
+	if response == nil {
+		ErrorBark("请求丰巢响应结果为空")
+		panic("请求丰巢响应结果为空")
+	}
+	if response.StatusCode == 401 {
+		ErrorBark("丰巢认证失败")
+		panic("丰巢认证失败")
 	}
 	body, _ := ioutil.ReadAll(response.Body)
 	fcBoxResponse := new(FcBoxResponse)
 	err = json.Unmarshal(body, fcBoxResponse)
 	if err != nil {
-		ErrorBark("fcbox response Unmarshal error")
+		ErrorBark("解析丰巢响应体失败")
 		panic(err)
 	}
 	var result []*StaffMessage
